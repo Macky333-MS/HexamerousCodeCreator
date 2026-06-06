@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Hexamerous Code</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Hexamerous Code</h1>
+
+<div>
+  <input id="codeName" placeholder="コード名（漢字OK）">
+  <input id="codeKana" placeholder="よみ（カタカナ）">
+  <button onclick="startCode()">開始</button>
+</div>
+
+<p id="status">
+コード名・よみを決めて開始してください。円は必ず6個です。
+</p>
+
+<h2>選ぶ円</h2>
+<div class="choices" id="choices"></div>
+
+<div class="editorBox noPrint">
+
+  <h2>色を塗る</h2>
+
+  <p>
+    色を選んでから、円の中の面を押してください。
+  </p>
+
+  <div class="colorChoices">
+
+    <div
+      id="whiteButton"
+      class="colorButton selectedColor"
+      style="background:white;"
+      onclick="selectPaintColor('white')">
+    </div>
+
+    <div
+      id="blackButton"
+      class="colorButton"
+      style="background:black;"
+      onclick="selectPaintColor('black')">
+    </div>
+
+    <div
+      id="redButton"
+      class="colorButton"
+      style="background:red;"
+      onclick="selectPaintColor('red')">
+    </div>
+
+    <div
+      id="greenButton"
+      class="colorButton"
+      style="background:green;"
+      onclick="selectPaintColor('green')">
+    </div>
+
+    <div
+      id="blueButton"
+      class="colorButton"
+      style="background:blue;"
+      onclick="selectPaintColor('blue')">
+    </div>
+
+    <div
+      id="yellowButton"
+      class="colorButton"
+      style="background:yellow;"
+      onclick="selectPaintColor('yellow')">
+    </div>
+
+    <div
+      id="cyanButton"
+      class="colorButton"
+      style="background:cyan;"
+      onclick="selectPaintColor('cyan')">
+    </div>
+
+    <div
+      id="purpleButton"
+      class="colorButton"
+      style="background:purple;"
+      onclick="selectPaintColor('purple')">
+    </div>
+
+    <div
+      id="pinkButton"
+      class="colorButton"
+      style="background:pink;"
+      onclick="selectPaintColor('pink')">
+    </div>
+
+  </div>
+
+  <div id="editArea"></div>
+
+  <button onclick="addPaintedShape()">
+    この円を追加
+  </button>
+
+  <button onclick="clearEditingShape()">
+    色塗りをやり直し
+  </button>
+
+</div>
+
+<h2>作成中のコード</h2>
+
+<div class="result" id="result"></div>
+
+<button onclick="saveCode()">保存</button>
+
+<button onclick="resetCurrent()">やり直し</button>
+
+<h2>保存済みコード</h2>
+
+<div class="noPrint">
+
+  <button onclick="printAllCodes()">
+    保存済みコード一覧を印刷
+  </button>
+
+  <button onclick="printSelectedCodes()">
+    選択したコードのみ印刷
+  </button>
+
+  <button onclick="deleteSelectedCodes()">
+    選択したコードを削除
+  </button>
+
+</div>
+
+<div id="savedList"></div>
+
+<h2 class="noPrint">iCloudバックアップ</h2>
+
+<div class="noPrint">
+
+  <button onclick="makeBackupText()">
+    バックアップ文字を作る
+  </button>
+
+  <button onclick="copyBackupText()">
+    バックアップ文字をコピー
+  </button>
+
+  <button onclick="restoreFromBackupText()">
+    貼り付けたバックアップを追加読み込み
+  </button>
+
+  <br>
+
+  <textarea
+    id="backupText"
+    placeholder="ここにバックアップ文字が表示されます">
+  </textarea>
+
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>
